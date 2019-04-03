@@ -26,6 +26,9 @@ namespace _5_Tree.Class
         /// </summary>
         public TwoBranchNode<T> RightChild { get; set; }
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public TwoBranchNode()
         {
 
