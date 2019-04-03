@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\TwoBranch.cs" />
+    <Compile Include="Class\BinaryTreeThreeBranch.cs" />
+    <Compile Include="Class\BinaryTreeTwoBranch.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
