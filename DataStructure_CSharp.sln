@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.539
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5_Tree", "5_Tree\5_Tree.csproj", "{FA238C02-EB22-4570-AF9D-87D4547FA2AB}"
 EndProject
@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{FB29B52F-59F3-4553-BCC8-C889A0E4D5F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6_Graph", "6_Graph\6_Graph.csproj", "{294568A7-F057-4D07-B345-25A05DE2CAAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{FB29B52F-59F3-4553-BCC8-C889A0E4D5F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB29B52F-59F3-4553-BCC8-C889A0E4D5F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB29B52F-59F3-4553-BCC8-C889A0E4D5F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{294568A7-F057-4D07-B345-25A05DE2CAAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{294568A7-F057-4D07-B345-25A05DE2CAAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{294568A7-F057-4D07-B345-25A05DE2CAAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{294568A7-F057-4D07-B345-25A05DE2CAAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
