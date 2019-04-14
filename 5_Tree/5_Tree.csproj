@@ -46,6 +46,8 @@
     <Compile Include="Class\BinaryTreeArray.cs" />
     <Compile Include="Class\BinaryTreeThreeBranch.cs" />
     <Compile Include="Class\BinaryTreeTwoBranch.cs" />
+    <Compile Include="Class\IBInaryTree.cs" />
+    <Compile Include="Class\ITree.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
