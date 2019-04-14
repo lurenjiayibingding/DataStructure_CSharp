@@ -42,6 +42,13 @@ namespace _5_Tree.Class
             LeftChild = left;
             RightChild = right;
         }
+
+        public TwoBranchNode()
+        {
+            Data = default(T);
+            LeftChild = null;
+            RightChild = null;
+        }
     }
 
     /// <summary>
@@ -50,18 +57,40 @@ namespace _5_Tree.Class
     /// <typeparam name="T"></typeparam>
     public class BinaryTreeTwoBranch<T>
     {
+        /// <summary>
+        /// 
+        /// </summary>
         private TwoBranchNode<T> headNode;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private TwoBranchNode<T> currentNode;
 
         /// <summary>
         /// 二叉树的第一个节点
         /// </summary>
         public TwoBranchNode<T> HeadNode { get => headNode; set => headNode = value; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public TwoBranchNode<T> CurrentNode { get => currentNode; set => currentNode = value; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="first"></param>
         public BinaryTreeTwoBranch(TwoBranchNode<T> first)
         {
             headNode = first;
+            currentNode = headNode;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="first"></param>
         public void AddNode(TwoBranchNode<T> first)
         {
 
