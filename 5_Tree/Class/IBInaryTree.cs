@@ -24,8 +24,18 @@ namespace _5_Tree.Class
         /// <returns></returns>
         T GetRoot();
 
+        /// <summary>
+        /// 得到节点的左孩子节点
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         T GetRightChild(T p);
 
+        /// <summary>
+        /// 得到节点的右孩子节点
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         T GetRightRight(T p);
     }
 }
