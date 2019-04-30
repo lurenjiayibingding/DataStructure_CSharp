@@ -46,5 +46,54 @@ namespace _7_Sorting
                 Sort(input, low + 1, j);
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="input"></param>
+        /// <param name="low"></param>
+        /// <param name="height"></param>
+        public void Sort2<T>(IList<T> input, int low, int height) where T : IComparable
+        {
+            int i = low;
+            int j = height;
+            T median = input[i];
+
+            while (i < j)
+            {
+                while (i < j && input[i].CompareTo(median) <= 0)
+                {
+                    i++;
+                }
+                while (i < j && input[j].CompareTo(median) > 0)
+                {
+                    j--;
+                }
+                if (i < j)
+                {
+                    T temp = input[i];
+                    input[i] = input[j];
+                    input[j] = temp;
+                }
+                else if (i == j)
+                {
+                    if (input[i].CompareTo(median) <= 0)
+                    {
+                        T temp = input[low];
+                        input[low] = input[i];
+                        input[i] = temp;
+                    }
+                    else
+                    {
+
+                    }
+                }
+                i++;
+                j--;
+            }
+            Sort2(input, low, i);
+            Sort2(input, j, height);
+        }
     }
 }
