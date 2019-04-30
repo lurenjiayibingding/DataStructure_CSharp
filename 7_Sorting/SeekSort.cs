@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace _7_Sorting
 {
     /// <summary>
-    /// 冒泡排序
+    /// 查找排序
     /// </summary>
-    public class BubbleSort
+    public class SeekSort
     {
         /// <summary>
-        /// 稳定冒泡排序
+        /// 稳定查找排序
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="input"></param>
@@ -20,20 +20,24 @@ namespace _7_Sorting
         {
             for (int i = 0; i < input.Count - 1; i++)
             {
-                for (int j = 1; j < input.Count - i; j++)
+                int maxFlag = 0;
+                T max = input[0];
+                int j = 0;
+                for (; j < input.Count - 1 - i; j++)
                 {
-                    if (input[j - 1].CompareTo(input[j]) > 0)
+                    if (max.CompareTo(input[j]) < 0)
                     {
-                        T tmp = input[j - 1];
-                        input[j - 1] = input[j];
-                        input[j] = tmp;
+                        max = input[j];
+                        maxFlag = j;
                     }
                 }
+                input[maxFlag] = input[j];
+                input[j] = max;
             }
         }
 
         /// <summary>
-        /// 不稳定的冒泡排序
+        /// 不稳定的查找排序
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="input"></param>
@@ -41,15 +45,19 @@ namespace _7_Sorting
         {
             for (int i = 0; i < input.Count - 1; i++)
             {
-                for (int j = 1; j < input.Count - i; j++)
+                int maxFlag = 0;
+                T max = input[0];
+                int j = 0;
+                for (; j < input.Count - 1 - i; j++)
                 {
-                    if (input[j - 1].CompareTo(input[j]) >= 0)
+                    if (max.CompareTo(input[j]) <= 0)
                     {
-                        T tmp = input[j - 1];
-                        input[j - 1] = input[j];
-                        input[j] = tmp;
+                        max = input[j];
+                        maxFlag = j;
                     }
                 }
+                input[maxFlag] = input[j];
+                input[j] = max;
             }
         }
     }
