@@ -29,7 +29,7 @@ namespace Test.Sorting
         {
             int[] input = new int[] { 5, 4, 10, 9, 8, 3, 2, 7, 6, 1 };
             BubbleSort bubbleSort = new BubbleSort();
-            bubbleSort.Sort<int>(input);
+            bubbleSort.Sort_Stable<int>(input);
             for (int i = 0; i < input.Length; i++)
             {
                 Assert.IsTrue(input[i] == i + 1);
