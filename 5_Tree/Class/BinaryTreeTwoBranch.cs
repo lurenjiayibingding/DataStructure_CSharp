@@ -43,6 +43,9 @@ namespace _5_Tree.Class
             RightChild = right;
         }
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public TwoBranchNode()
         {
             Data = default(T);
@@ -73,12 +76,12 @@ namespace _5_Tree.Class
         public TwoBranchNode<T> HeadNode { get => headNode; set => headNode = value; }
 
         /// <summary>
-        /// 
+        /// 二叉树当前最后一个节点
         /// </summary>
         public TwoBranchNode<T> CurrentNode { get => currentNode; set => currentNode = value; }
 
         /// <summary>
-        /// 
+        /// 构造函数
         /// </summary>
         /// <param name="first"></param>
         public BinaryTreeTwoBranch(TwoBranchNode<T> first)
