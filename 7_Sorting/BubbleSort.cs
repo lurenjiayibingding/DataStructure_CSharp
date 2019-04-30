@@ -16,7 +16,7 @@ namespace _7_Sorting
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="input"></param>
-        public void Sort_Stable<T>(IList<T> input) where T : IComparable
+        public void SortStable<T>(IList<T> input) where T : IComparable
         {
             for (int i = 0; i < input.Count - 1; i++)
             {
@@ -37,7 +37,7 @@ namespace _7_Sorting
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="input"></param>
-        public void Sort_Unstable<T>(IList<T> input) where T : IComparable
+        public void SortUnstable<T>(IList<T> input) where T : IComparable
         {
             for (int i = 0; i < input.Count - 1; i++)
             {
