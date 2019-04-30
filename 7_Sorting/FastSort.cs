@@ -72,9 +72,7 @@ namespace _7_Sorting
                 }
                 if (i < j)
                 {
-                    T temp = input[i];
-                    input[i] = input[j];
-                    input[j] = temp;
+                    Exchange(input, i, j);
                 }
                 else if (i == j)
                 {
@@ -94,6 +92,19 @@ namespace _7_Sorting
             }
             Sort2(input, low, i);
             Sort2(input, j, height);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="low"></param>
+        /// <param name="i"></param>
+        private void Exchange<T>(IList<T> input, int low, int i)
+        {
+            T temp = input[low];
+            input[low] = input[i];
+            input[i] = temp;
         }
     }
 }
