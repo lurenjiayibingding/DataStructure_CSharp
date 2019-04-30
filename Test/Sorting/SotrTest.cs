@@ -76,6 +76,46 @@ namespace Test.Sorting
                 Assert.IsTrue(input[i] == i + 1);
             }
         }
+
+        [TestMethod]
+        public void SeekStableSortTest()
+        {
+            int[] input = new int[] { 5, 4, 10, 9, 8, 3, 2, 7, 6, 1 };
+            SeekSort seekSort = new SeekSort();
+            seekSort.SortStable<int>(input);
+            for (int i = 0; i < input.Length; i++)
+            {
+                Assert.IsTrue(input[i] == i + 1);
+            }
+        }
+
+        [TestMethod]
+        public void SeekUnstableSortTest()
+        {
+            CompareObj[] input = new CompareObj[]
+            {
+                new CompareObj("1-1", 1),
+                new CompareObj("3-1", 3),
+                new CompareObj("8-1", 8),
+                new CompareObj("9-1", 9),
+                new CompareObj("7-1", 7),
+                new CompareObj("6-1", 6),
+                new CompareObj("2-1", 2),
+                new CompareObj("7-2", 7),
+                new CompareObj("3-2", 3),
+                new CompareObj("4-1", 4),
+                new CompareObj("1-2", 1),
+            };
+            SeekSort seekSort = new SeekSort();
+            seekSort.SortUnstable(input);
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 0; i < input.Length; i++)
+            {
+                stringBuilder.Append(input[i].ToString() + Environment.NewLine);
+            }
+
+            Assert.IsTrue(true);
+        }
     }
 
     class CompareObj : IComparable
