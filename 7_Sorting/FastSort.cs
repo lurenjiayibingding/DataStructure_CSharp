@@ -56,9 +56,20 @@ namespace _7_Sorting
         /// <param name="height"></param>
         public void Sort2<T>(IList<T> input, int low, int height) where T : IComparable
         {
-            int i = low;
+            if (low == height)
+                return;
+            if (height - low == 1)
+            {
+                if (input[low].CompareTo(input[height]) >= 0)
+                {
+                    Exchange(input, low, height);
+                }
+                return;
+            }
+
+            int i = low + 1;
             int j = height;
-            T median = input[i];
+            T median = input[low];
 
             while (i < j)
             {
@@ -73,6 +84,8 @@ namespace _7_Sorting
                 if (i < j)
                 {
                     Exchange(input, i, j);
+                    i++;
+                    j--;
                 }
                 else if (i == j)
                 {
@@ -84,27 +97,30 @@ namespace _7_Sorting
                     }
                     else
                     {
-
+                        T temp = input[low];
+                        input[low] = input[i - 1];
+                        input[i - 1] = temp;
+                        j = i;
+                        i = i - 1;
                     }
+                    break;
                 }
-                i++;
-                j--;
             }
-            Sort2(input, low, i);
-            Sort2(input, j, height);
+            Sort2(input, low, i - 1);
+            Sort2(input, j + 1, height);
         }
 
         /// <summary>
-        /// 
+        /// 交换两个元素的位置
         /// </summary>
         /// <param name="input"></param>
-        /// <param name="low"></param>
         /// <param name="i"></param>
-        private void Exchange<T>(IList<T> input, int low, int i)
+        /// <param name="j"></param>
+        private void Exchange<T>(IList<T> input, int i, int j)
         {
-            T temp = input[low];
-            input[low] = input[i];
-            input[i] = temp;
+            T temp = input[i];
+            input[i] = input[j];
+            input[j] = temp;
         }
     }
 }
