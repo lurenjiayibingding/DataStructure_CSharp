@@ -56,8 +56,9 @@ namespace _7_Sorting
         /// <param name="height"></param>
         public void Sort2<T>(IList<T> input, int low, int height) where T : IComparable
         {
-            if (low == height)
+            if (low >= height || height < 0 || low < 0)
                 return;
+
             if (height - low == 1)
             {
                 if (input[low].CompareTo(input[height]) >= 0)
@@ -67,46 +68,28 @@ namespace _7_Sorting
                 return;
             }
 
-            int i = low + 1;
+            int i = low;
             int j = height;
             T median = input[low];
 
             while (i < j)
             {
-                while (i < j && input[i].CompareTo(median) <= 0)
-                {
-                    i++;
-                }
                 while (i < j && input[j].CompareTo(median) > 0)
                 {
                     j--;
                 }
+                while (i < j && input[i].CompareTo(median) <= 0)
+                {
+                    i++;
+                }
+
                 if (i < j)
                 {
                     Exchange(input, i, j);
-                    i++;
-                    j--;
-                }
-                else if (i == j)
-                {
-                    if (input[i].CompareTo(median) <= 0)
-                    {
-                        T temp = input[low];
-                        input[low] = input[i];
-                        input[i] = temp;
-                    }
-                    else
-                    {
-                        T temp = input[low];
-                        input[low] = input[i - 1];
-                        input[i - 1] = temp;
-                        j = i;
-                        i = i - 1;
-                    }
-                    break;
                 }
             }
-            Sort2(input, low, i - 1);
+            Exchange(input, low, j);
+            Sort2(input, low, j - 1);
             Sort2(input, j + 1, height);
         }
 
@@ -118,6 +101,8 @@ namespace _7_Sorting
         /// <param name="j"></param>
         private void Exchange<T>(IList<T> input, int i, int j)
         {
+            if (i == j)
+                return;
             T temp = input[i];
             input[i] = input[j];
             input[j] = temp;
