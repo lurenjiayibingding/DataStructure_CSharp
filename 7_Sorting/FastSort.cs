@@ -67,20 +67,21 @@ namespace _7_Sorting
                 return;
             }
 
-            int i = low + 1;
+            int i = low;
             int j = height;
             T median = input[low];
 
             while (i < j)
             {
-                while (i < j && input[i].CompareTo(median) <= 0)
-                {
-                    i++;
-                }
                 while (i < j && input[j].CompareTo(median) > 0)
                 {
                     j--;
                 }
+                while (i < j && input[i].CompareTo(median) <= 0)
+                {
+                    i++;
+                }
+
                 if (i < j)
                 {
                     Exchange(input, i, j);
