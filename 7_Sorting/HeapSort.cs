@@ -28,22 +28,16 @@ namespace _7_Sorting
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="height"></param>
-        public void ConvertToHeap(IList<T> input, int height)
+        /// <param name="input">待整理为堆的数据集合</param>
+        /// <param name="index">集合中第一个非叶子节点的位置</param>
+        public void ConvertToHeap(IList<T> input, int index)
         {
-            while (height > 0)
+            int leftIndex = (index + 1) * 2 - 1;
+            T leftValue = input[leftIndex];
+
+            if (leftIndex< input.Count - 1)
             {
-                int tempIndex = (height - 1) / 2;
-                if (input[tempIndex].CompareTo(input[height]) <= 0)
-                {
-                    T tempValue = input[tempIndex];
-                    input[tempIndex] = input[height];
-                    input[height] = tempValue;
-                    ConvertToHeap(input, tempIndex);
-                }
-                height = height - 1;
-                ConvertToHeap(input, height);
+
             }
         }
     }
