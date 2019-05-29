@@ -11,39 +11,61 @@ namespace _7_Sorting
     /// </summary>
     public class HeapSort<T> where T : IComparable
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
         public void Sort(IList<T> input)
         {
-            int height = input.Count - 1;
-            ConvertToHeap(input, height);
-            while (height > 0)
+            CreateHeap(input, 0, input.Count() - 1);
+            for (int height = input.Count() - 1; height > 0; height--)
             {
-                T max = input[0];
-                input[0] = input[height];
-                input[height] = max;
-                height--;
-                ConvertToHeap(input, height);
+                T tempValue = input[height];
+                input[height] = input[0];
+                input[0] = tempValue;
+                CreateHeap(input, 0, --height);
             }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="height"></param>
-        public void ConvertToHeap(IList<T> input, int height)
+        /// <param name="input">待整理为堆的数据集合</param>
+        /// <param name="currentIndex">当前节点在堆中的位置</param>
+        public void CreateHeap(IList<T> input, int currentIndex, int lastIndex)
         {
-            while (height > 0)
+            for (int i = currentIndex; i > 0; i--)
             {
-                int tempIndex = (height - 1) / 2;
-                if (input[tempIndex].CompareTo(input[height]) <= 0)
+                aaaa(input, i, lastIndex);
+            }
+        }
+
+        private void aaaa(IList<T> input, int currentIndex, int lastIndex)
+        {
+            int leftChildIndex = (currentIndex + 1) * 2 - 1;
+            int rightChildIndex = (currentIndex + 1) * 2;
+
+            if (leftChildIndex <= lastIndex)
+            {
+                int tempIndex = leftChildIndex;
+                T tempValue = input[leftChildIndex];
+
+                if (rightChildIndex <= lastIndex)
                 {
-                    T tempValue = input[tempIndex];
-                    input[tempIndex] = input[height];
-                    input[height] = tempValue;
-                    ConvertToHeap(input, tempIndex);
+                    if (input[rightChildIndex].CompareTo(tempIndex) > 0)
+                    {
+                        tempIndex = rightChildIndex;
+                        tempValue = input[rightChildIndex];
+                    }
                 }
-                height = height - 1;
-                ConvertToHeap(input, height);
+
+                if (tempValue.CompareTo(input[currentIndex]) > 0)
+                {
+                    input[tempIndex] = input[currentIndex];
+                    input[currentIndex] = tempValue;
+                }
+
+                aaaa(input, tempIndex, lastIndex);
             }
         }
     }

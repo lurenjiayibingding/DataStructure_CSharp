@@ -120,12 +120,10 @@ namespace Test.Sorting
         }
 
         [TestMethod]
-        public void HeapSortTest()
+        public void HeapSortTest1()
         {
             HeapSort<int> heap = new HeapSort<int>();
             int[] input = new int[] { 5, 4, 10, 9, 8, 3, 2, 7, 6, 1 };
-            //int[] input = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
-            //int[] input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             heap.Sort(input);
 
             for (int i = 0; i < input.Length; i++)
@@ -135,13 +133,63 @@ namespace Test.Sorting
         }
 
         [TestMethod]
-        public void ConvertToHeapTest()
+        public void HeapSortTest2()
         {
             HeapSort<int> heap = new HeapSort<int>();
-            //int[] input = new int[] { 5, 4, 10, 9, 8, 3, 2, 7, 6, 1 };
-            //int[] input = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+            int[] input = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+            heap.Sort(input);
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                Assert.IsTrue(input[i] == i + 1);
+            }
+        }
+
+        [TestMethod]
+        public void HeapSortTest3()
+        {
+            HeapSort<int> heap = new HeapSort<int>();
             int[] input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            heap.ConvertToHeap(input, input.Length - 1);
+            heap.Sort(input);
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                Assert.IsTrue(input[i] == i + 1);
+            }
+        }
+
+        [TestMethod]
+        public void ConvertToHeapTest1()
+        {
+            HeapSort<int> heap = new HeapSort<int>();
+            int[] input = new int[] { 5, 4, 10, 9, 8, 3, 2, 7, 6, 1 };
+            heap.CreateHeap(input, (input.Length - 2) / 2, input.Length - 1);
+
+            for (int i = 1; i < input.Length; i++)
+            {
+                Assert.IsTrue(input[(i - 1) / 2].CompareTo(input[i]) >= 0);
+            }
+        }
+
+        [TestMethod]
+        public void ConvertToHeapTest2()
+        {
+            HeapSort<int> heap = new HeapSort<int>();
+            int[] input = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+            heap.CreateHeap(input, (input.Length - 2) / 2, input.Length - 1);
+
+            for (int i = 1; i < input.Length; i++)
+            {
+                Assert.IsTrue(input[(i - 1) / 2].CompareTo(input[i]) >= 0);
+            }
+        }
+
+        [TestMethod]
+        public void ConvertToHeapTest3()
+        {
+            HeapSort<int> heap = new HeapSort<int>();
+            int[] input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            heap.CreateHeap(input, (input.Length - 2) / 2, input.Length - 1);
 
             for (int i = 1; i < input.Length; i++)
             {
