@@ -17,13 +17,16 @@ namespace _7_Sorting
         /// <param name="input"></param>
         public void Sort(IList<T> input)
         {
-            CreateHeap(input, 0, input.Count() - 1);
-            for (int height = input.Count() - 1; height > 0; height--)
+            int height = input.Count() - 1;
+            CreateHeap(input, (height - 1) / 2, height);
+            while (height > 0)
             {
                 T tempValue = input[height];
                 input[height] = input[0];
                 input[0] = tempValue;
-                CreateHeap(input, 0, --height);
+
+                height--;
+                CreateHeap(input, (height - 1) / 2, height);
             }
         }
 
@@ -34,13 +37,13 @@ namespace _7_Sorting
         /// <param name="currentIndex">当前节点在堆中的位置</param>
         public void CreateHeap(IList<T> input, int currentIndex, int lastIndex)
         {
-            for (int i = currentIndex; i > 0; i--)
+            for (int i = currentIndex; i >= 0; i--)
             {
-                aaaa(input, i, lastIndex);
+                MoveSource(input, i, lastIndex);
             }
         }
 
-        private void aaaa(IList<T> input, int currentIndex, int lastIndex)
+        private void MoveSource(IList<T> input, int currentIndex, int lastIndex)
         {
             int leftChildIndex = (currentIndex + 1) * 2 - 1;
             int rightChildIndex = (currentIndex + 1) * 2;
@@ -52,7 +55,7 @@ namespace _7_Sorting
 
                 if (rightChildIndex <= lastIndex)
                 {
-                    if (input[rightChildIndex].CompareTo(tempIndex) > 0)
+                    if (input[rightChildIndex].CompareTo(tempValue) > 0)
                     {
                         tempIndex = rightChildIndex;
                         tempValue = input[rightChildIndex];
@@ -63,9 +66,8 @@ namespace _7_Sorting
                 {
                     input[tempIndex] = input[currentIndex];
                     input[currentIndex] = tempValue;
+                    MoveSource(input, tempIndex, lastIndex);
                 }
-
-                aaaa(input, tempIndex, lastIndex);
             }
         }
     }
