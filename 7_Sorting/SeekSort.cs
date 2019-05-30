@@ -18,10 +18,10 @@ namespace _7_Sorting
         /// <param name="input"></param>
         public void SortStable<T>(IList<T> input) where T : IComparable
         {
+            int maxFlag = 0;
+            T max = input[maxFlag];
             for (int i = 0; i < input.Count - 1; i++)
             {
-                int maxFlag = 0;
-                T max = input[0];
                 int j = 0;
                 for (; j < input.Count - 1 - i; j++)
                 {
@@ -33,6 +33,9 @@ namespace _7_Sorting
                 }
                 input[maxFlag] = input[j];
                 input[j] = max;
+
+                maxFlag = 0;
+                max = input[maxFlag];
             }
         }
 
