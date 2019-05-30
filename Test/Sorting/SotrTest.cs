@@ -159,7 +159,7 @@ namespace Test.Sorting
         }
 
         [TestMethod]
-        public void ConvertToHeapTest1()
+        public void CreateHeapTest1()
         {
             HeapSort<int> heap = new HeapSort<int>();
             int[] input = new int[] { 5, 4, 10, 9, 8, 3, 2, 7, 6, 1 };
@@ -172,7 +172,7 @@ namespace Test.Sorting
         }
 
         [TestMethod]
-        public void ConvertToHeapTest2()
+        public void CreateHeapTest2()
         {
             HeapSort<int> heap = new HeapSort<int>();
             int[] input = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
@@ -185,11 +185,50 @@ namespace Test.Sorting
         }
 
         [TestMethod]
-        public void ConvertToHeapTest3()
+        public void CreateHeapTest3()
         {
             HeapSort<int> heap = new HeapSort<int>();
             int[] input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             heap.CreateHeap(input, (input.Length - 2) / 2, input.Length - 1);
+
+            for (int i = 1; i < input.Length; i++)
+            {
+                Assert.IsTrue(input[(i - 1) / 2].CompareTo(input[i]) >= 0);
+            }
+        }
+
+        [TestMethod]
+        public void CreateHeap2Test1()
+        {
+            HeapSort<int> heap = new HeapSort<int>();
+            int[] input = new int[] { 5, 4, 10, 9, 8, 3, 2, 7, 6, 1 };
+            heap.CreateHeap2(input, 0, input.Length - 1);
+
+            for (int i = input.Length - 1; i > 0; i--)
+            {
+                Assert.IsTrue(input[(i - 1) / 2].CompareTo(input[i]) >= 0);
+            }
+        }
+
+        [TestMethod]
+        public void CreateHeap2Test2()
+        {
+            HeapSort<int> heap = new HeapSort<int>();
+            int[] input = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+            heap.CreateHeap2(input, 0, input.Length - 1);
+
+            for (int i = 1; i < input.Length; i++)
+            {
+                Assert.IsTrue(input[(i - 1) / 2].CompareTo(input[i]) >= 0);
+            }
+        }
+
+        [TestMethod]
+        public void CreateHeap2Test3()
+        {
+            HeapSort<int> heap = new HeapSort<int>();
+            int[] input = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            heap.CreateHeap2(input, 0, input.Length - 1);
 
             for (int i = 1; i < input.Length; i++)
             {
