@@ -40,6 +40,30 @@ namespace _7_Sorting
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="input"></param>
+        public void SortStable2<T>(IList<T> input) where T : IComparable
+        {
+            for (int i = 0; i < input.Count - 1; i++)
+            {
+                int tIndex = i;
+                for (int j = i + 1; j < input.Count; j++)
+                {
+                    if (input[tIndex].CompareTo(input[j]) > 0)
+                    {
+                        tIndex = j;
+                    }
+                }
+
+                T tValue = input[i];
+                input[i] = input[tIndex];
+                input[tIndex] = tValue;
+            }
+        }
+
+        /// <summary>
         /// 不稳定的查找排序
         /// </summary>
         /// <typeparam name="T"></typeparam>

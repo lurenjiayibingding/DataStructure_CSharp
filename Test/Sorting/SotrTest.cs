@@ -92,6 +92,18 @@ namespace Test.Sorting
         }
 
         [TestMethod]
+        public void SeekStableSort2Test()
+        {
+            int[] input = new int[] { 5, 4, 10, 9, 8, 3, 2, 7, 6, 1 };
+            SeekSort seekSort = new SeekSort();
+            seekSort.SortStable2<int>(input);
+            for (int i = 0; i < input.Length; i++)
+            {
+                Assert.IsTrue(input[i] == i + 1);
+            }
+        }
+
+        [TestMethod]
         public void SeekUnstableSortTest()
         {
             CompareObj[] input = new CompareObj[]
