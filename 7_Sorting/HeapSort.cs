@@ -17,7 +17,13 @@ namespace _7_Sorting
         /// <param name="input"></param>
         public void Sort(IList<T> input)
         {
-            int height = input.Count() - 1;
+            int length = input.Count();
+            if (length <= 1)
+            {
+                return;
+            }
+
+            int height = length - 1;
             CreateHeap(input, (height - 1) / 2, height);
             while (height > 0)
             {
@@ -73,6 +79,43 @@ namespace _7_Sorting
                     input[tempIndex] = input[currentIndex];
                     input[currentIndex] = tempValue;
                     MoveSource(input, tempIndex, lastIndex);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="beginIndex"></param>
+        /// <param name="lastIndex"></param>
+        public void CreateHeap2(IList<T> input, int beginIndex, int lastIndex)
+        {
+            int firstIndex = (lastIndex - 1) / 2;
+            for (int i = firstIndex; i >= beginIndex; i--)
+            {
+                int currentIndex = i;
+                while (currentIndex < lastIndex)
+                {
+                    int leftIndex = (currentIndex + 1) * 2 - 1;
+                    int rightIndex = (currentIndex + 1) * 2;
+                    int tempIndex = leftIndex;
+
+                    if (leftIndex < lastIndex && rightIndex < lastIndex && input[rightIndex].CompareTo(input[leftIndex]) > 0)
+                    {
+                        tempIndex = rightIndex;
+                    }
+                    if (leftIndex <= lastIndex && input[tempIndex].CompareTo(input[currentIndex]) > 0)
+                    {
+                        T tempValue = input[currentIndex];
+                        input[currentIndex] = input[tempIndex];
+                        input[tempIndex] = tempValue;
+                        currentIndex = tempIndex;
+                    }
+                    else
+                    {
+                        currentIndex = lastIndex + 1;
+                    }
                 }
             }
         }
