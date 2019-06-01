@@ -43,6 +43,12 @@ namespace _7_Sorting
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="currentIndex"></param>
+        /// <param name="lastIndex"></param>
         private void MoveSource(IList<T> input, int currentIndex, int lastIndex)
         {
             int leftChildIndex = (currentIndex + 1) * 2 - 1;
