@@ -21,5 +21,38 @@ namespace Test.Serach
             Assert.IsTrue(result[0] == 2);
             Assert.IsTrue(result[1] == 5);
         }
+
+        [TestMethod]
+        public void BinarySearchTest()
+        {
+            BinarySearch search = new BinarySearch();
+            int[] input = new int[] { 5, 5, 5, 5, 5, 5 };
+            var result = search.Search(input, 0, input.Length - 1, 5);
+            Assert.IsTrue(result.Length == 6);
+            for (int i = 0; i < result.Length; i++)
+            {
+                Assert.IsTrue(result[i] == i);
+            }
+        }
+
+        [TestMethod]
+        public void BinarySearchTest2()
+        {
+            BinarySearch search = new BinarySearch();
+            int[] input = new int[] { 1, 2, 3, 5, 5, 6, 7, 8 };
+            var result = search.Search(input, 0, input.Length - 1, 5);
+            Assert.IsTrue(result.Length == 2);
+            Assert.IsTrue(result[0] == 3);
+            Assert.IsTrue(result[1] == 4);
+        }
+
+        [TestMethod]
+        public void BinarySearchTest3()
+        {
+            BinarySearch search = new BinarySearch();
+            int[] input = new int[] { 1, 2, 4, 5, 5, 6, 7, 8 };
+            var result = search.Search(input, 0, input.Length - 1, 9);
+            Assert.IsTrue(result.Length == 0);
+        }
     }
 }
